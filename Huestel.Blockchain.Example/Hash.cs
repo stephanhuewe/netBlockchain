@@ -4,9 +4,9 @@ using System.Text;
 
 namespace Huestel.Blockchain.Example
 {
-    public class Manager
+    public static class Hash
     {
-        public string CreateHash(string payload)
+        public static string CreateHash(string payload)
         {
             // Sorting?
             byte[] message = Encoding.UTF8.GetBytes(payload);

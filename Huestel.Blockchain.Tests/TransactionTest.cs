@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Huestel.Blockchain.Example;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -105,5 +104,6 @@ namespace Huestel.Blockchain.Tests
 
             Assert.IsFalse(result);
         }
+
     }
 }

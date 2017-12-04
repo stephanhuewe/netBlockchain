@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Newtonsoft.Json;
 
 namespace Huestel.Blockchain.Example
@@ -51,6 +50,8 @@ namespace Huestel.Blockchain.Example
             return transaction;
 
         }
+
+
 
         /// <summary>
         /// Updates the status without any checks

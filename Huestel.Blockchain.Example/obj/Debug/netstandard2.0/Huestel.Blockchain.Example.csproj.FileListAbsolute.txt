@@ -1,9 +1,9 @@
 C:\Users\sh\Source\Repos\netBlockchain\Huestel.Blockchain.Example\bin\Debug\netstandard2.0\Huestel.Blockchain.Example.deps.json
 C:\Users\sh\Source\Repos\netBlockchain\Huestel.Blockchain.Example\bin\Debug\netstandard2.0\Huestel.Blockchain.Example.dll
 C:\Users\sh\Source\Repos\netBlockchain\Huestel.Blockchain.Example\bin\Debug\netstandard2.0\Huestel.Blockchain.Example.pdb
-C:\Users\sh\Source\Repos\netBlockchain\Huestel.Blockchain.Example\obj\Debug\netstandard2.0\Huestel.Blockchain.Example.csprojResolveAssemblyReference.cache
 C:\Users\sh\Source\Repos\netBlockchain\Huestel.Blockchain.Example\obj\Debug\netstandard2.0\Huestel.Blockchain.Example.csproj.CoreCompileInputs.cache
 C:\Users\sh\Source\Repos\netBlockchain\Huestel.Blockchain.Example\obj\Debug\netstandard2.0\Huestel.Blockchain.Example.AssemblyInfoInputs.cache
 C:\Users\sh\Source\Repos\netBlockchain\Huestel.Blockchain.Example\obj\Debug\netstandard2.0\Huestel.Blockchain.Example.AssemblyInfo.cs
 C:\Users\sh\Source\Repos\netBlockchain\Huestel.Blockchain.Example\obj\Debug\netstandard2.0\Huestel.Blockchain.Example.dll
 C:\Users\sh\Source\Repos\netBlockchain\Huestel.Blockchain.Example\obj\Debug\netstandard2.0\Huestel.Blockchain.Example.pdb
+C:\Users\sh\Source\Repos\netBlockchain\Huestel.Blockchain.Example\obj\Debug\netstandard2.0\Huestel.Blockchain.Example.csprojResolveAssemblyReference.cache
