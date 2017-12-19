@@ -48,4 +48,6 @@ public Transaction DoTransaction()
             return transaction;
         }      
 ```
-This is a sample transaction between Alice and Bob. Withdrawals are shown as negative number and all deposits as positive numbers. A transaction consists of two parts. Since money cannot vanish the sum of both transactionparts has to be zero in any condition.
+This is a sample transaction between Alice and Bob. Withdrawals are shown as negative numbers and all deposits as positive numbers. A transaction consists of two parts. Since money cannot vanish the sum of both transaction parts has to be zero in any condition.
+
+## Block Basics
