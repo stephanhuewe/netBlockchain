@@ -11,12 +11,11 @@ A blockchain is a kind of distributed database. Every participant can save a cop
 Miners are considered to validate the blockchain. This costs some CPU power (and by this energy) - that is why they are rewarded with some transaction fee taken from each new transaction.
 
 ## Hashing
-There is some hash algorithm which is used to link the blocks with each other. You can find it within hash.cs:
+There is some hash algorithm which is used to link the blocks with each other. You can find it within Hash.cs:
 
 ```
 public static string CreateHash(string payload)
         {
-            // Sorting?
             byte[] message = Encoding.UTF8.GetBytes(payload);
             SHA256Managed hashString = new SHA256Managed();
             string hex = String.Empty;
@@ -29,3 +28,24 @@ public static string CreateHash(string payload)
             return hex;
         }
 ```
+I decided for SHA256 - but there can be alternatives.
+
+## Transaction Basics
+A basic transaction looks like this:
+
+```
+public Transaction DoTransaction()
+        {
+            int sign = -1;
+            decimal amount = 100;
+            decimal alicePays = sign * amount;
+            decimal bobPays = alicePays * -1;
+
+            TransactionPart alice = new TransactionPart("Alice", alicePays);
+            TransactionPart bob = new TransactionPart("Bob", bobPays);
+            Transaction transaction = new Transaction(alice, bob);
+
+            return transaction;
+        }      
+```
+This is a sample transaction between Alice and Bob. Withdrawals are shown as negative number and all deposits as positive numbers. A transaction consists of two parts. Since money cannot vanish the sum of both transactionparts has to be zero in any condition.
