@@ -51,3 +51,40 @@ public Transaction DoTransaction()
 This is a sample transaction between Alice and Bob. Withdrawals are shown as negative numbers and all deposits as positive numbers. A transaction consists of two parts. Since money cannot vanish the sum of both transaction parts has to be zero in any condition.
 
 ## Block Basics
+Now we should create some blocks. But before starting with it we should think about the basic rules of our blocks.
+
+### Basic Rules
+The first rule was already defined earlier: The sum of each transaction should be 0.
+The second rule is that any transaction can only be performed if the balance of this user covers the transaction.
+
+An implementation could look like this:
+
+```
+public bool IsValidTransaction(Dictionary<string, decimal> transactions, Dictionary<string, decimal> states)
+        {
+            // Sum of deposits and withdrawals must be 0
+            decimal sum = transactions.Select(x => x.Value).Sum();
+            if (sum != 0)
+            {
+                return false;
+            }
+
+            foreach (var key in transactions.Keys)
+            {
+                decimal balance = 0;
+
+                // Existing balance
+                if (states.Keys.Contains(key))
+                {
+                    balance = states[key];
+                }
+
+                decimal overpay = balance + transactions[key];
+                if (overpay < 0)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+```
