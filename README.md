@@ -109,4 +109,24 @@ This test has to fail since Alice' balance does not cover the tranaction (5 < 6)
             Assert.IsFalse(result);
         }
 ```
-This test has to to fail
+A valid transaction would be this one:
+
+```
+[TestMethod]
+        public void TransactionNewUserTest()
+        {
+            Dictionary<string, decimal> states = new Dictionary<string, decimal>();
+            states.Add("Alice", 5);
+            states.Add("Bob", 5);
+
+            Dictionary<string, decimal> transactions = new Dictionary<string, decimal>();
+            transactions.Add("Alice", -2);
+            transactions.Add("Peter", 2);
+
+            TransactionManager manager = new TransactionManager();
+            bool result = manager.IsValidTransaction(transactions, states);
+
+            Assert.IsTrue(result);
+        }
+```
+   
