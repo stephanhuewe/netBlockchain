@@ -88,3 +88,25 @@ public bool IsValidTransaction(Dictionary<string, decimal> transactions, Diction
             return true;
         }
 ```
+Of course I created some basic UnitTests in order to demonstrate the logic. 
+This test has to fail since Alice' balance does not cover the tranaction (5 < 6).
+
+```
+[TestMethod]
+        public void TransactionOverpayFailTest()
+        {
+            Dictionary<string, decimal> states = new Dictionary<string, decimal>();
+            states.Add("Alice", 5);
+            states.Add("Bob", 5);
+
+            Dictionary<string, decimal> transactions = new Dictionary<string, decimal>();
+            transactions.Add("Alice", -6);
+            transactions.Add("Bob", 6);
+
+            TransactionManager manager = new TransactionManager();
+            bool result = manager.IsValidTransaction(transactions, states);
+
+            Assert.IsFalse(result);
+        }
+```
+This test has to to fail
