@@ -129,4 +129,13 @@ A valid transaction would be this one:
             Assert.IsTrue(result);
         }
 ```
-   
+### Building a block
+A block consists of:
+- A hash for its content
+- The content itself:
+-- Blocknumber
+-- Parent Hash (Important for the integrity of the blockchain)
+-- Multiple transactions
+
+## Blockchain
+
