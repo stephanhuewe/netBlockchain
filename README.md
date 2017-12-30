@@ -133,9 +133,9 @@ A valid transaction would be this one:
 A block consists of:
 * A hash for its content
 * The content itself:
-- Blocknumber
-- Parent Hash (Important for the integrity of the blockchain)
-- Multiple transactions
+        * Block-number
+        * Parent Hash (Important for the integrity of the blockchain)
+        * Multiple transactions
 
 ## Blockchain
-
+The blockchain starts with the first block, the so called "genesis block". This is where all started. Since it has no parent it is treatend a little bit different than all other blocks. The genesis block could also define of how many of your "coins" are available in total.
