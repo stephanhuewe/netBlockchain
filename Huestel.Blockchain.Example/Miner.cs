@@ -34,7 +34,7 @@ namespace Huestel.Blockchain.Example
             TransactionManager transactionManager = new TransactionManager();
 
             // Transaction
-            // Todo: Foreach?
+            // Todo: Implement multiple transaction within a block with foreach...
             bool transactionIsValid = transactionManager.IsValidTransaction(block.Content.Transactions, currentState);
             if (transactionIsValid)
             {

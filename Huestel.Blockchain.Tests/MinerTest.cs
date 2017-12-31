@@ -14,11 +14,11 @@ namespace Huestel.Blockchain.Tests
             Example.Blockchain chain = new Example.Blockchain();
             BlockchainHelper helper = new BlockchainHelper();
 
-            Dictionary<string, decimal> transactions = new Dictionary<string, decimal>();
-            transactions.Add("Alice", -3);
-            transactions.Add("Bob", 3);
+            TransactionPart alice = new TransactionPart("Alice", -3);
+            TransactionPart bob = new TransactionPart("Bob", 3);
+            Transaction transaction = new Transaction(alice, bob);
 
-            Block newBlock = helper.CreateBlock(transactions, chain);
+            Block newBlock = helper.CreateBlock(transaction, chain);
 
             Miner miner = new Miner();
             bool result = miner.CheckBlockHash(newBlock);
@@ -36,11 +36,11 @@ namespace Huestel.Blockchain.Tests
             states.Add("Alice", 5);
             states.Add("Bob", 5);
 
-            Dictionary<string, decimal> transactions = new Dictionary<string, decimal>();
-            transactions.Add("Alice", -3);
-            transactions.Add("Bob", 3);
+            TransactionPart alice = new TransactionPart("Alice", -3);
+            TransactionPart bob = new TransactionPart("Bob", 3);
+            Transaction transaction = new Transaction(alice, bob);
 
-            Block newBlock = helper.CreateBlock(transactions, chain);
+            Block newBlock = helper.CreateBlock(transaction, chain);
             Block parentBlock = chain.Chain[0];
             
             Miner miner = new Miner();

@@ -13,12 +13,12 @@ namespace Huestel.Blockchain.Tests
         {
             Example.Blockchain chain = new Example.Blockchain();
             BlockchainHelper helper = new BlockchainHelper();
+            
+            TransactionPart alice = new TransactionPart("Alice", -3);
+            TransactionPart bob = new TransactionPart("Bob", 3);
+            Transaction transaction = new Transaction(alice, bob);
 
-            Dictionary<string, decimal> transactions = new Dictionary<string, decimal>();
-            transactions.Add("Alice", -3);
-            transactions.Add("Bob", 3);
-
-            Block newBlock =  helper.CreateBlock(transactions, chain);
+            Block newBlock =  helper.CreateBlock(transaction, chain);
 
             Assert.AreEqual(newBlock.Content.BlockNumber, 1);
             Assert.AreEqual(newBlock.Content.NumberOfTransactions, 2);

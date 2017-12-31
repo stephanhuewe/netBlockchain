@@ -41,9 +41,7 @@ namespace Huestel.Blockchain.Tests
             for (int i = 1; i <= howMany; i++)
             {
                 Transaction tx = CreateSampleTransaction();
-                Dictionary<string, decimal> txDic = helper.ConvertTransaction(tx);
-
-                Block innerBlock = helper.CreateBlock(txDic, chain);
+                Block innerBlock = helper.CreateBlock(tx, chain);
                 chain.Chain.Add(innerBlock);
             }
 
