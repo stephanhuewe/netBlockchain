@@ -223,3 +223,7 @@ The final example app creates a full blockchain and validates it.
             Dictionary<string, decimal> result = miner.CheckBlockchain(chain);
             ...
 ```
+
+This is what it looks like:
+
+![alt text](https://www.netblockchain.de/wp-content/uploads/2017/12/sc.png)
