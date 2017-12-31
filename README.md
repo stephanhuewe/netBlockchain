@@ -14,7 +14,7 @@ Miners are considered to validate the blockchain. This costs some CPU power (and
 There is some hash algorithm which is used to link the blocks with each other. You can find it within Hash.cs:
 
 ```
-public static string CreateHash(string payload)
+        public static string CreateHash(string payload)
         {
             byte[] message = Encoding.UTF8.GetBytes(payload);
             SHA256Managed hashString = new SHA256Managed();
@@ -34,7 +34,7 @@ I decided for SHA256 - but there can be alternatives.
 A basic transaction looks like this:
 
 ```
-public Transaction DoTransaction()
+        public Transaction DoTransaction()
         {
             int sign = -1;
             decimal amount = 100;
@@ -60,7 +60,7 @@ The second rule is that any transaction can only be performed if the balance of 
 An implementation could look like this:
 
 ```
-public bool IsValidTransaction(Dictionary<string, decimal> transactions, Dictionary<string, decimal> states)
+        public bool IsValidTransaction(Dictionary<string, decimal> transactions, Dictionary<string, decimal> states)
         {
             // Sum of deposits and withdrawals must be 0
             decimal sum = transactions.Select(x => x.Value).Sum();
@@ -92,7 +92,7 @@ Of course I created some basic UnitTests in order to demonstrate the logic.
 This test has to fail since Alice' balance does not cover the tranaction (5 < 6).
 
 ```
-[TestMethod]
+        [TestMethod]
         public void TransactionOverpayFailTest()
         {
             Dictionary<string, decimal> states = new Dictionary<string, decimal>();
@@ -112,7 +112,7 @@ This test has to fail since Alice' balance does not cover the tranaction (5 < 6)
 A valid transaction would be this one:
 
 ```
-[TestMethod]
+        [TestMethod]
         public void TransactionNewUserTest()
         {
             Dictionary<string, decimal> states = new Dictionary<string, decimal>();
@@ -138,15 +138,40 @@ A block consists of:
   * Multiple transactions
 
 ## Blockchain
-The blockchain starts with the first block, the so called "genesis block". This is where all started. Since it has no parent it is treatend a little bit different than all other blocks. The genesis block could also define of how many of your "coins" are available in total. There we can also define the first distribution. In the end this block will be the first in our blockchain.
+The blockchain starts with the first block, the so called "genesis block". This is where all started. Since it has no parent it is treatend a little bit different than all other blocks. The genesis block could also define of how many of your "coins" are available in total. There we can also define the first distribution. In the end this block will be the first in our blockchain
+.
 
-[CODE]
 
-Here is the code of how to create a block:
+```
+        public Blockchain()
+        {
+            // This is the very first aka genesis transaction
+            Dictionary<string, decimal> root = new Dictionary<string, decimal>();
+            root.Add("Alice", 100);
+            root.Add("Bob", 100);
 
-[CODE]
+            string parentHash = String.Empty;
+            int blockNumber = 0;
+            int NumberOfTransactions = 1;
 
-After creation, add it to the blockchain.
+            BlockContent content = new BlockContent(blockNumber, parentHash, NumberOfTransactions, root);
+
+            _chain = new List<Block>();
+            Block rootBlock = new Block(content);
+            Chain.Add(rootBlock);
+        }
+```
+
+Here is the code of how to create a block. A block consists of two transaction parts (think about the rules mentioned before). These two build a transaction which is added to a block.
+
+```
+                TransactionPart alice = new TransactionPart(ALICE, 10);
+                TransactionPart bob = new TransactionPart(BOB, -10;
+                Transaction transaction = new Transaction(alice, bob);
+
+                Block innerBlock = helper.CreateBlock(transaction, chain);
+                chain.Chain.Add(innerBlock);
+```
 
 ## Validating the blockchain "Miner"
 
