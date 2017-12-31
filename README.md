@@ -206,3 +206,20 @@ So what happens within "CheckBlock":
 * The references within the chain are OK (Number + ParentHash)
 * The Block hash itself has to be valid
 
+## The final example
+The final example app creates a full blockchain and validates it.
+
+```
+            Example.Blockchain chain = new Example.Blockchain(); // GENESIS!
+            for (int i = 1; i <= 1000; i++)
+            {
+                ...
+                Transaction transaction = new Transaction(alice, bob);
+                Block innerBlock = helper.CreateBlock(transaction, chain);
+                chain.Chain.Add(innerBlock);
+                ...
+            }
+            ...
+            Dictionary<string, decimal> result = miner.CheckBlockchain(chain);
+            ...
+```
