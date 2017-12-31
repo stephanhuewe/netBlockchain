@@ -174,5 +174,35 @@ Here is the code of how to create a block. A block consists of two transaction p
 ```
 
 ## Validating the blockchain "Miner"
+So one of the tasks of a "miner" is to validate the blockchain. So by this it goes through the whole blockchain starting with the genesis block and validating each block. Since the parent hash is involved fraudulent blocks can be found easily.
 
+So let's go through the blockchain block by block and update the status:
+
+```
+            foreach (Block block in chain.Chain)
+            {
+                manager.UpdateStatus(block.Content.Transactions, states);
+            }
+```
+            
+By this the "money" is transfered. After the transfers are done we will have to validate the blockchain. The genesis block is a special one so we will have to leave it out. If there is an error within the blockchain the block is broken and has to be rejected.
+
+```
+            foreach (Block block in chain.Chain.Skip(1))
+            {
+                states = CheckBlock(block, parent, states, out errors);
+                parent = block;
+
+                if (errors.Count != 0)
+                {
+                    // Error
+                }
+            }
+```
+
+So what happens within "CheckBlock":
+
+* The transaction must be valid
+* The references within the chain are OK (Number + ParentHash)
+* The Block hash itself has to be valid
 
