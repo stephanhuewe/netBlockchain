@@ -7,7 +7,7 @@ Blockchain technology implementation in C# / .net
 Blockchain is widely used in cryptocurrencies. But apart from that this technology can be used for various other representations of coherent data.
 
 ## The Basics
-A blockchain is a kind of distributed database. Every participant can save a copy of the database so there is no central service. The database can be extended by adding new data. Every new dataset contains a validation (e.g. hash) of the parent data. The algorithm for proofing transactions within the blockchain is public - so everyone can validate the blockchain. Once data is written to the blockchain it cannot be modified anymore. Blockchains can be considered to be very secure. Any manipulation would mean that you have to rewrite and recalc all blocks from the beginning. In general this is rather economically unviable.
+A blockchain is a kind of distributed database. Every participant can save a copy of the database - so there is no central service. The database can be extended by adding new data. Every new dataset contains a validation (e.g. hash) of the parent data. The algorithm for proofing transactions within the blockchain is public - so everyone can validate the blockchain. Once data is written to the blockchain it cannot be modified anymore. Blockchains can be considered to be very secure. Any manipulation would mean that you have to rewrite and recalc all blocks from the beginning. In general this is rather economically unviable and there are other witnesses.
 Miners are considered to validate the blockchain. This costs some CPU power (and by this energy) - that is why they are rewarded with some transaction fee taken from each new transaction.
 
 ## Hashing
@@ -89,7 +89,7 @@ An implementation could look like this:
         }
 ```
 Of course I created some basic UnitTests in order to demonstrate the logic. 
-This test has to fail since Alice' balance does not cover the tranaction (5 < 6).
+This test has to fail since Alice' balance does not cover the transaction (5 < 6).
 
 ```
         [TestMethod]
@@ -138,7 +138,7 @@ A block consists of:
   * Multiple transactions
 
 ## Blockchain
-The blockchain starts with the first block, the so called "genesis block". This is where all started. Since it has no parent it is treatend a little bit different than all other blocks. The genesis block could also define of how many of your "coins" are available in total. There we can also define the first distribution. In the end this block will be the first in our blockchain
+The blockchain starts with the first block, the so called "genesis block". This is where all started. Since it has no parent it is treated a little bit different than all other blocks. The genesis block could also define of how many of your "coins" are available in total. There we can also define the first distribution. In the end this block will be the first in our blockchain
 .
 
 
@@ -227,3 +227,9 @@ The final example app creates a full blockchain and validates it.
 This is what it looks like:
 
 ![alt text](https://www.netblockchain.de/wp-content/uploads/2017/12/sc.png)
+
+## Known limitations
+
+* Hardcoded participants, no way register a "wallet" or similiar
+* No public services
+
