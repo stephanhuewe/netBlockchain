@@ -7,7 +7,7 @@ Blockchain technology implementation in C# / .net
 Blockchain is widely used in cryptocurrencies. But apart from that this technology can be used for various other representations of coherent data.
 
 ## The Basics
-A blockchain is a kind of distributed database. Every participant can save a copy of the database - so there is no central service. The database can be extended by adding new data. Every new dataset contains a validation (e.g. hash) of the parent data. The algorithm for proofing transactions within the blockchain is public - so everyone can validate the blockchain. Once data is written to the blockchain it cannot be modified anymore. Blockchains can be considered to be very secure. Any manipulation would mean that you have to rewrite and recalc all blocks from the beginning. In general this is rather economically unviable and there are other witnesses.
+A blockchain is a kind of distributed database. Every participant can save a copy of the database - so there is no central service. The database can be extended by adding new data. Every new dataset contains a validation (e.g. hash) of the parent data. The algorithm for approving transactions within the blockchain is public - so everyone can validate the blockchain. Once data is written to the blockchain it cannot be modified anymore. Blockchains can be considered to be very secure. Any manipulation would mean that you have to rewrite and recalc all blocks from the beginning. In general this is rather economically unviable and there are other witnesses.
 Miners are considered to validate the blockchain. This costs some CPU power (and by this energy) - that is why they are rewarded with some transaction fee taken from each new transaction.
 
 ## Hashing
