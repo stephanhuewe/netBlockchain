@@ -1,7 +1,7 @@
 # netBlockchain
 Blockchain technology implementation in C# / .net
 
-![alt text](https://www.netblockchain.de/wp-content/uploads/2017/12/cropped-white_logo_color_background.jpg)
+![alt text](<blockquote class="imgur-embed-pub" lang="en" data-id="a/34jd4aU" data-context="false" ><a href="//imgur.com/a/34jd4aU"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>)
 
 ## Why netBlockchain?
 Blockchain is widely used in cryptocurrencies. But apart from that this technology can be used for various other representations of coherent data.
